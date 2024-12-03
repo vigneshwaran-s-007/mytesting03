@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#ffccbc, #ffffff);
+            background-image: url(https://cdn.dribbble.com/users/563509/screenshots/4916966/music-guy-drib.gif);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px; /* Adjusted for a more rounded container */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50px; /* Circular input fields */
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus {
+            border-color: #007bff;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50px; /* Circular submit button */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        p {
+            text-align: center;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm" action="/register" method="post">
+            <input type="text" name="rname" id="rname" placeholder="Username" required>
+            <input type="password" name="rpass1" id="rpass1" placeholder="Password" required>
+            <input type="password" name="rpass2" id="rpass2" placeholder="Confirm Password" required>
+            <input type="email" name="remail" id="remail" placeholder="E-mail address" required>
+            <div id="error-message" class="error"></div>
+            <input type="submit" value="Sign up">
+            <p>Have an account? <a href="http://localhost:1000/login">Sign in</a></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            var password = document.getElementById('rpass1').value;
+            var confirmPassword = document.getElementById('rpass2').value;
+            var errorMessage = document.getElementById('error-message');
+
+            errorMessage.textContent = '';
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match!';
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

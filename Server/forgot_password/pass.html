@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Forgot Password</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-image:url(https://cdn.dribbble.com/users/563509/screenshots/4916966/music-guy-drib.gif);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .container {
+                background-color: white;
+                padding: 30px; /* Increased padding for oval shape */
+                border-radius: 50px; /* Make it oval */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center items */
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+                color: #333;
+            }
+            input[type="text"] {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 20px; /* Rounded input fields */
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            input[type="submit"] {
+                padding: 10px;
+                border: none;
+                background-color: #28a745;
+                color: white;
+                border-radius: 20px; /* Rounded button */
+                cursor: pointer;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Forgot Password</h1>
+            <form action="/forgot_password" method="post">
+                <label for="fp">Enter your email:</label>
+                <input type="text" id="fp" name="fp" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

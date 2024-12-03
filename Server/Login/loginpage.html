@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://cdn.dribbble.com/users/563509/screenshots/4916966/music-guy-drib.gif);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px; /* More rounded container */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px; /* Responsive max width */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50px; /* Circular input fields */
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff; /* Highlight border on focus */
+        }
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50px; /* Circular submit button */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .links {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .links a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm" action="/login" method="post">
+            <input type="text" id="lName" name="lName" placeholder="Username or Email" required>
+            <input type="password" id="lPass" name="lPass" placeholder="Password" required>
+            <input type="submit" value="Sign in">
+            <div class="links">
+                <a href="http://localhost:1000/forgot_password">Forgot Password?</a>
+                <a href="http://localhost:1000/register">Sign Up</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var username = document.getElementById('lName').value;
+            var password = document.getElementById('lPass').value;
+
+            if (!username || !password) {
+                alert('Please fill out both fields.');
+                event.preventDefault(); // Prevent form from being submitted
+            }
+        });
+    </script>
+</body>
+</html>
